@@ -4,7 +4,7 @@ import pandas as pd
 import io
 import xlsxwriter
 
-api_key = "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"
+api_key = "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"
 
 openai.api_key = api_key
 
