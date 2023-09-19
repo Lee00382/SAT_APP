@@ -64,7 +64,7 @@ if uploaded_file is not None:
         output = io.BytesIO()
         writer = pd.ExcelWriter(output, engine='xlsxwriter')
         result_df.to_excel(writer, sheet_name='Explanations', index=False)
-        writer.save()
+        writer.close()
         output.seek(0)
         st.download_button(
             label="Download Explanations and Questions (Excel)",
