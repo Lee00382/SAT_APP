@@ -62,9 +62,9 @@ if uploaded_file is not None:
         st.dataframe(result_df)
         
         output = io.BytesIO()
-        writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        result_df.to_excel(writer, sheet_name='Explanations', index=False)
-        writer.save()
+        with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+            result_df.to_excel(writer, sheet_name='Explanations', index=False)
+            writer.save()
         output.seek(0)
         st.download_button(
             label="Download Explanations and Questions (Excel)",
