@@ -67,7 +67,7 @@ if uploaded_file is not None:
         
         output = io.BytesIO()
         writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        edited_df.to_excel(writer, sheet_name='Explanations', index=False)
+        result_df.to_excel(writer, sheet_name='Explanations', index=False)
         writer.save()
         output.seek(0)
         st.download_button(
