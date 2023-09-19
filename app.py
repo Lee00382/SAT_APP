@@ -61,10 +61,6 @@ if uploaded_file is not None:
         st.subheader("Explanations for SAT Questions:")
         st.dataframe(result_df)
         
-        st.write("Live Editing:")
-
-        edited_response = st.data_editor(result_df)
-        
         output = io.BytesIO()
         writer = pd.ExcelWriter(output, engine='xlsxwriter')
         result_df.to_excel(writer, sheet_name='Explanations', index=False)
